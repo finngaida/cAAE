@@ -1,7 +1,7 @@
 import numpy as np
 import skimage.measure
 import scipy
-from scipy.misc import imresize
+import cv2
 
 def generate_patch(img_3d, patch_size, step_size, threshold):
     img = np.asarray(img_3d)
@@ -29,7 +29,7 @@ def resize(img_3d,scale):
     img=img_3d
     res = []
     for im in img:
-        i_ = imresize(im,scale, interp='nearest')
+        i_ = cv2.resize(im,scale, interp='nearest')
         i_re = (i_/255.0)*(im.max()-im.min())+im.min()
         res.append(i_re)
     return np.asarray(res)

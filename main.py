@@ -42,8 +42,7 @@ def train(z_dim=None, model_name=None):
     :param train_model: True -> Train the model, False -> Load the latest trained model and show the image grid.
     :return: does not return anything
     """
-    X_train, y_train = datasets.create_datasets(retrain=0, task="aae_wgan_" + str(z_dim),
-                                                num_aug=0)
+    X_train, y_train = datasets.create_datasets(retrain=0, task="aae_wgan_" + str(z_dim))
 
     batch_size = BATCH_SIZE
     input_dim = X_train.shape[-1]
